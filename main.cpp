@@ -19,7 +19,15 @@ int main()
     //sf::RenderWindow App(sf::VideoMode(width, height), "SFML window");
 
 
+    //Load a sprite with the image data from texture
     sf::Sprite sprite(texture);
+
+    //Great a graphical text to display
+    sf::Font font;
+    if (!font.loadFromFile("arial.ttf"))
+        return EXIT_FAILURE;
+
+    sf::Text text("Hello world!", font, 30);
 
 	// Start the game loop
     while (App.isOpen())
@@ -38,6 +46,9 @@ int main()
 
         // Draw the sprite
         App.draw(sprite);
+
+        //Draw the string
+        App.draw(text);
 
         // Update the window
         App.display();
